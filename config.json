@@ -1,0 +1,45 @@
+{
+  "dataDir": "./data",
+  "concurrency": 2,
+  "userAgent": "web-watcher/1.0",
+  "server": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8787,
+    "token": ""
+  },
+  "defaults": {
+    "intervalSec": 300,
+    "timeoutSec": 20,
+    "keepSnapshots": 25,
+    "failureThreshold": 3,
+    "cooldownSec": 0
+  },
+  "webhooks": [
+    {
+      "name": "discord",
+      "type": "discord",
+      "urlEnv": "DISCORD_WEBHOOK_URL",
+      "username": "Web Watcher",
+      "events": ["change", "failure", "recovery"]
+    }
+  ],
+  "targets": [
+    {
+      "id": "node-latest",
+      "name": "Node.js latest release",
+      "url": "https://nodejs.org/dist/index.json",
+      "type": "json",
+      "path": "[0]",
+      "intervalSec": 3600
+    },
+    {
+      "id": "example-home",
+      "name": "example.com homepage",
+      "url": "https://example.com/",
+      "type": "html",
+      "intervalSec": 1800,
+      "minChangePercent": 5
+    }
+  ]
+}

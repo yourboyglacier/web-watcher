@@ -1,0 +1,22 @@
+{
+  "name": "web-watcher",
+  "version": "1.0.0",
+  "description": "Autonomous web and API change watcher with webhook alerts and a local dashboard. Zero dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "web-watcher": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js start",
+    "once": "node src/index.js once",
+    "list": "node src/index.js list",
+    "status": "node src/index.js status",
+    "test-webhook": "node src/index.js test-webhook"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "author": "watchme_134",
+  "license": "MIT"
+}

@@ -1,0 +1,20 @@
+[Unit]
+Description=web-watcher
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/web-watcher
+EnvironmentFile=-/opt/web-watcher/.env
+ExecStart=/usr/bin/node src/index.js start
+Restart=always
+RestartSec=5
+User=watcher
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/web-watcher/data /opt/web-watcher/config.json
+MemoryMax=150M
+
+[Install]
+WantedBy=multi-user.target
